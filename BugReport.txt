@@ -1,0 +1,6 @@
+-----------------------------BUG_REPORT-----------------------------
+1. When a player wins blackjack, needs to wait until dealer plays to calculate payout.
+2.
+
+Hearts
+1. New tricks don't always start with the player who won the last trick.
