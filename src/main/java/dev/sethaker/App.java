@@ -9,9 +9,6 @@ public class App {
     private CardGame cardGame;
 
     public static void main(String[] args) {
-//        Player testPlayer = new ComputerPlayer("GPT");
-//        Card card = testPlayer.getCardChoice();
-//        System.out.println(card.toString());
         App app = new App();
         app.runMainMenu();
     }
@@ -27,11 +24,11 @@ public class App {
                 cardGame.run();
 
             } else if (menuSelection == 2) {
-//                TODO: Uncomment code below before posting
-//                boolean hasKey = consoleService.printHeartsSetupWarningAndGetUserResponse();
-//                if(!hasKey){
-//                    break;
-//                }
+
+                boolean hasKey = consoleService.printHeartsSetupWarningAndGetUserResponse();
+                if(!hasKey){
+                    break;
+                }
                 System.out.println("Initializing Hearts...");
                 cardGame = new Hearts(consoleService.getPlayerName());
                 cardGame.run();
