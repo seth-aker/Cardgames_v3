@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="App" type="Application" factoryName="Application" nameIsGenerated="true">
     <envs>
-      <env name="OPENAI_API_KEY" value="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" />
+      <env name="OPENAI_API_KEY" value="" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="dev.sethaker.App" />
     <module name="CardGamesv3.0.0" />
