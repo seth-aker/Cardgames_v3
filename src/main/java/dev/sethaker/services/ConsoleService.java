@@ -12,6 +12,13 @@ public class ConsoleService implements Input {
     private final Scanner scanner = new Scanner(System.in);
 
     public void printMainMenu() {
+        System.out.println("\n" +
+                "   ______                        __   ______                                         _    __   _____\n" +
+                "  / ____/  ____ _   _____   ____/ /  / ____/  ____ _   ____ ___     ___     _____   | |  / /  |__  /\n" +
+                " / /      / __ `/  / ___/  / __  /  / / __   / __ `/  / __ `__ \\   / _ \\   / ___/   | | / /    /_ < \n" +
+                "/ /___   / /_/ /  / /     / /_/ /  / /_/ /  / /_/ /  / / / / / /  /  __/  (__  )    | |/ /   ___/ / \n" +
+                "\\____/   \\__,_/  /_/      \\__,_/   \\____/   \\__,_/  /_/ /_/ /_/   \\___/  /____/     |___/   /____/  \n");
+
         System.out.println("-------------Main Menu-------------");
         System.out.println("Welcome to Console Card Games!");
         System.out.println("Please select a game to play:");
