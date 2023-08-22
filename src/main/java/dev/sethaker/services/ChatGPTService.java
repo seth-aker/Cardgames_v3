@@ -1,16 +1,15 @@
 package dev.sethaker.services;
 
 
+import dev.sethaker.resources.ai.model.ChatGPTResponse;
+import dev.sethaker.resources.ai.model.hearts.ChatGPTRequest;
 import dev.sethaker.resources.game.model.PlayerHand;
-
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
-import dev.sethaker.resources.ai.model.hearts.ChatGPTRequest;
-import dev.sethaker.resources.ai.model.ChatGPTResponse;
 
 
 public class ChatGPTService implements Input {

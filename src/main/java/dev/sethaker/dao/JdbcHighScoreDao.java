@@ -8,6 +8,7 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,8 @@ public class JdbcHighScoreDao implements HighScoreDao{
     private final String SQL_BASE_TEXT = "SELECT u.display_name, hs.* FROM highscore AS hs JOIN users AS u ON hs.user_id = hs.user_id ";
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcHighScoreDao(JdbcTemplate jdbcTemplate){
-        this.jdbcTemplate = jdbcTemplate;
+    public JdbcHighScoreDao(DataSource dataSource){
+        this.jdbcTemplate =  new JdbcTemplate(dataSource);
     }
 
 
