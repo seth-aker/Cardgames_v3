@@ -38,7 +38,7 @@ public class JdbcHighScoreDao implements HighScoreDao{
     @Override
     public HighScore getHighScoreById(int highScoreId) {
         HighScore highScore = null;
-        String sql = SQL_BASE_TEXT + "WHERE u.user_id = ?;";
+        String sql = SQL_BASE_TEXT + "WHERE highscore_id = ?;";
 
         try{
             SqlRowSet result = jdbcTemplate.queryForRowSet(sql, highScoreId);
@@ -67,20 +67,24 @@ public class JdbcHighScoreDao implements HighScoreDao{
     }
 
     @Override
-    public HighScore updateHighScore(HighScore highScore) {
-        return null;
-    }
-
-    @Override
-    public int deleteHighScore(int highScoreId) {
-        return 0;
+    public List<HighScore> getHighScoresByUser(int userId){
+        List<HighScore> highScoreList = new ArrayList<>();
+        String sql = SQL_BASE_TEXT + "WHERE u.user_id = ? ORDER BY hs.score DESC LIMIT 10;";
+        try{
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+            while (results.next()){
+                highScoreList.add(mapToHighScore(results));
+            }
+        }catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return highScoreList;
     }
 
     private HighScore mapToHighScore(SqlRowSet rowSet){
 
         HighScore highScore = new HighScore();
         highScore.setHighScoreId(rowSet.getInt("highscore_id"));
-        highScore.setDisplayName(rowSet.getString("display_name"));
         highScore.setUserId(rowSet.getInt("user_id"));
         highScore.setScore(rowSet.getBigDecimal("score"));
         highScore.setDateCreated(rowSet.getDate("date_created"));
