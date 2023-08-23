@@ -1,5 +1,6 @@
 package dev.sethaker.dao;
 
+import dev.sethaker.exceptions.DaoException;
 import dev.sethaker.resources.db.model.User;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,7 +36,19 @@ public class JdbcUserDaoTest extends BaseDaoTest{
     }
 
     @Test
-    public void getUserById_throws_exception_for_
+    public void getUserById_throws_exception_for_invalid_connection(){
+        String methodName = "getUserById()";
+        try{
+            User user = invalidConnectionDao.getUserById(1);
+            Assert.fail(methodName);
+        } catch (DaoException e) {
+            if (e.getMessage().equalsIgnoreCase(methodName + NOT_IMPLEMENTED_LONG_SUFFIX)) {
+                Assert.fail(methodName + " did not throw Dao exception");
+            }
+        } catch (Exception e) {
+            Assert.fail(methodName + " did not throw Dao exception");
+        }
+    }
 
     @Test
     public void createUser_has_expected_values_when_retrieved() {
