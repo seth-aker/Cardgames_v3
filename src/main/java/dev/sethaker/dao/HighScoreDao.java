@@ -1,6 +1,6 @@
 package dev.sethaker.dao;
 
-import dev.sethaker.resources.dbmodel.HighScore;
+import dev.sethaker.resources.db.model.HighScore;
 
 
 import java.util.List;

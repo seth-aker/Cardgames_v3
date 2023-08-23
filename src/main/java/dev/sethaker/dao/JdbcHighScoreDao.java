@@ -2,7 +2,7 @@ package dev.sethaker.dao;
 
 import dev.sethaker.exceptions.DaoException;
 
-import dev.sethaker.resources.dbmodel.HighScore;
+import dev.sethaker.resources.db.model.HighScore;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;

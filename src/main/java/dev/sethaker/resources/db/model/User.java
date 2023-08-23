@@ -1,6 +1,6 @@
-package dev.sethaker.resources.dbmodel;
+package dev.sethaker.resources.db.model;
 
-import java.util.Locale;
+
 
 public class User {
     private int userId;
@@ -10,11 +10,11 @@ public class User {
 
     public User(){};
 
-    public User(int userId, String username, String passwordHash){
+    public User(int userId, String username, String displayName, String passwordHash ){
         this.userId = userId;
         this.username= username;
         this.passwordHash = passwordHash;
-        this.displayName = username.toUpperCase().substring(0,3);
+        this.displayName = displayName;
     }
 
     public int getUserId() {
@@ -31,15 +31,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-        if (username.length() <= 3) {
-            this.displayName = username.toUpperCase();
-        } else {
-            this.displayName = username.substring(0, 3).toUpperCase();
-        }
     }
 
     public String getDisplayName() {
         return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public String getPasswordHash() {

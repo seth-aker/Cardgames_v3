@@ -1,6 +1,6 @@
 package dev.sethaker.dao;
 
-import dev.sethaker.resources.dbmodel.User;
+import dev.sethaker.resources.db.model.User;
 
 public interface UserDao {
     User getUserById(int id);

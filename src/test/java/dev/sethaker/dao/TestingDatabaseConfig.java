@@ -50,7 +50,7 @@ public class TestingDatabaseConfig {
     @Bean
     public DataSource dataSource() throws SQLException {
         SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
-        dataSource.setUrl(String.format("jdbc:postgresql://%s/%s", DB_HOST, DB_NAME));
+        dataSource.setUrl(String.format("jdbc:postgresql://%s:%s/%s", DB_HOST, DB_PORT, DB_NAME));
         dataSource.setUsername(DB_USER);
         dataSource.setPassword(DB_PASSWORD);
         dataSource.setAutoCommit(false); //So we can rollback after each test.

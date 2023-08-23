@@ -1,7 +1,7 @@
 package dev.sethaker.dao;
 
 import dev.sethaker.exceptions.DaoException;
-import dev.sethaker.resources.dbmodel.User;
+import dev.sethaker.resources.db.model.User;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,7 +19,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public User getUserById(int id) {
         User user = null;
-        String sql = "SELECT username, display_name, password_hash FROM users WHERE user_id = ?; ";
+        String sql = "SELECT user_id, username, display_name, password_hash FROM users WHERE user_id = ?; ";
         try {
             SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
             if (result.next()) {
@@ -69,9 +69,10 @@ public class JdbcUserDao implements UserDao {
 
     private User mapRowSetToUser(SqlRowSet rowSet){
         User user = new User();
+        user.setUserId(rowSet.getInt("user_id"));
         user.setUsername(rowSet.getString("username"));
         user.setPasswordHash(rowSet.getString("password_hash"));
-
+        user.setDisplayName(rowSet.getString("display_name"));
         return user;
     }
 }

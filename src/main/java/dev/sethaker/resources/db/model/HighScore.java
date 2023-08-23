@@ -1,4 +1,4 @@
-package dev.sethaker.resources.dbmodel;
+package dev.sethaker.resources.db.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;

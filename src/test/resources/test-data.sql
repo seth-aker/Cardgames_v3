@@ -22,8 +22,8 @@ CREATE TABLE highscore (
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO users(username, password_hash, display_name) VALUES ('USER1', 'PASSWORD', 'USE');
-INSERT INTO users(username, password_hash, display_name) VALUES ('TESTER1', 'PASSWORD', 'TES');
+INSERT INTO users(username, password_hash, display_name) VALUES ('USER1', 'PASSWORD', 'ONE');
+INSERT INTO users(username, password_hash, display_name) VALUES ('USER2', 'PASSWORD', 'TWO');
 
 INSERT INTO highscore (user_id, score) VALUES (1, 100);
 INSERT INTO highscore (user_id, score) VALUES (1, 250);
