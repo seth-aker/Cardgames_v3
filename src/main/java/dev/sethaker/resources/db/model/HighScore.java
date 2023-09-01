@@ -5,15 +5,15 @@ import java.sql.Date;
 
 public class HighScore {
     private int highScoreId;
-    private int userId;
+    private String userId;
     private BigDecimal score;
     private Date dateCreated;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -40,5 +40,10 @@ public class HighScore {
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    @Override
+    public String toString(){
+        return "Player: " + userId + " || Winnings: $" + score;
     }
 }

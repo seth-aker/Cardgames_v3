@@ -64,7 +64,7 @@ public class Blackjack extends CardGame {
                 System.out.println("Would you like to play again?");
                 System.out.println("(1) Yes");
                 System.out.println("(2) No");
-                isGameOver = !consoleService.getPlayAgain();
+                isGameOver = !consoleService.getChoice();
             }
             if (!isGameOver) {
                 deck.discardCards(dealer.getPlayerHands().get(0).getCardsInHand());
@@ -74,7 +74,10 @@ public class Blackjack extends CardGame {
                 }
                 player.getPlayerHands().clear();
             } else {
+                consoleService.postToLeaderBoard(player.getPlayerMoney());
+                consoleService.displayLeaderboard();
                 System.out.println("Thank you for playing! Come again soon!");
+
             }
         }
     }

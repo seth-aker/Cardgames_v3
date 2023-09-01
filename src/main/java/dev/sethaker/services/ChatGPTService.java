@@ -11,6 +11,8 @@ import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
+
 
 public class ChatGPTService implements Input {
 
@@ -52,6 +54,10 @@ public class ChatGPTService implements Input {
             System.out.println("Something went wrong. " + e.getMessage());
         }
         return chatGPTCardChoice;
+    }
+
+    @Override
+    public void postToLeaderBoard(BigDecimal money) {
     }
 
     private HttpEntity<ChatGPTRequest> makeEntity(ChatGPTRequest chatGPTRequest) {

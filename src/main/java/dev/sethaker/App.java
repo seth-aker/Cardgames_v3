@@ -26,14 +26,17 @@ public class App {
             } else if (menuSelection == 2) {
 
                 boolean hasKey = consoleService.printHeartsSetupWarningAndGetUserResponse();
-                if(!hasKey){
-                    break;
+                if (!hasKey) {
+                    continue;
                 }
                 System.out.println("Initializing Hearts...");
                 cardGame = new Hearts(consoleService.getPlayerName());
                 cardGame.run();
+            }else if ( menuSelection == 3) {
+                consoleService.displayLeaderboard();
+
             } else if (menuSelection != 0) {
-                System.out.println("Invalid input, please enter 0, 1, or 2");
+                System.out.println("Invalid input, please enter 0, 1, 2, 3");
             }
         }
     }

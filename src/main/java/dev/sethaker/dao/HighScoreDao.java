@@ -10,7 +10,7 @@ public interface HighScoreDao {
     List<HighScore> getTopTenHighScores();
     List<HighScore> getHighScoresByUser(int userId);
     HighScore getHighScoreById(int highScoreId);
-    HighScore createHighScore(HighScore highScore);
+    boolean createHighScore(HighScore highScore);
 
 
 
